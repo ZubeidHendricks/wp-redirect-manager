@@ -81,7 +81,8 @@ final class RedirectManager extends ZubFactory_Plugin {
 	}
 
 	public function maybe_redirect() {
-		$request = untrailingslashit( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) );
+		$uri     = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		$request = untrailingslashit( wp_parse_url( $uri, PHP_URL_PATH ) );
 		$rules   = $this->rules();
 		if ( ! isset( $rules[ $request ] ) ) {
 			return;
@@ -111,7 +112,8 @@ final class RedirectManager extends ZubFactory_Plugin {
 		if ( ! is_404() || ! $this->option( 'log404', 1 ) ) {
 			return;
 		}
-		$path = untrailingslashit( wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ) );
+		$uri  = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		$path = untrailingslashit( wp_parse_url( $uri, PHP_URL_PATH ) );
 		if ( '' === $path ) {
 			return;
 		}

@@ -1,5 +1,7 @@
 # Redirect Manager
 
+🌐 **[Browse all plugins](https://zubeidhendricks.github.io/wp-plugins-site/)** · ⬇️ **[Download .zip](https://github.com/ZubeidHendricks/wp-redirect-manager/releases/latest/download/redirect-manager.zip)**
+
 Create and manage 301/302/410 redirects from one simple screen, and catch 404s
 before visitors hit them. Part of the
 [Zub Plugin Factory](https://github.com/ZubeidHendricks/wp-plugin-factory).
